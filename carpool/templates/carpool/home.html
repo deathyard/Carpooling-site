@@ -1,0 +1,68 @@
+{% extends "carpool/base.html" %}
+{% load static %}
+{% block title %}<title>Enroute Home</title>
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'carpool/css/style.css' %}">
+{% endblock title %}
+{% block content %}
+<section class="hero">
+    <h1 data-aos="fade-up" data-aos-duration="1000" class="heading heading-1">Going Somewhere?</h1>
+    <p data-aos="fade-up" data-aos-duration="1200"  class="tagline">Carpool and become a superhero.</p>
+    <div data-aos="zoom-in" data-aos-duration="1400" class="btn-container">
+        <button onclick="location.href='{% url 'carpool-trip' %}'" class="primary-btn btn-1">Ride Now</button>
+        <button onclick="location.href='{% url 'trip-create' %}'" class="primary-btn btn-2">Offer A Ride</button>
+        
+    </div>
+    <h1 data-aos="fade-up" data-aos-duration="1300" id="animate2" class="heading heading-2">Let's Go Carpooling!</h1>
+</section>
+
+<div class="scroll-btn"><button class="scroll" onclick="scrollDown()"></button></div>
+
+<section class="aero">
+    <div class="heading-3">Why Carpool?</div>
+    <div class="grid-table">
+        <div data-aos="fade-down-right" data-aos-duration="1000" data-aos-once="true" class="grid-item show-on-scroll item1">
+            <div  class="left-section-grid">
+                <img class="grid-image" src="{% static 'carpool/css/img/economy.jpg' %}" alt="">
+            </div>
+            <div class="right-section-grid">
+                <h3 class="name">Economical</h3>
+                <p class="description">Not only in terms of money, but also in terms of time. It helps you significantly reduce the travel expenses of any trip or commute</p>
+            </div>
+        </div>
+        <div data-aos="fade-down-left" data-aos-duration="1000" data-aos-once="true" class="grid-item show-on-scroll item2">
+            <div class="left-section-grid">
+                <img class="grid-image" src="{% static 'carpool/css/img/ecoFriendly.jpg' %}" alt="">
+            </div>
+            <div class="right-section-grid">
+                <h3 class="name">Eco-Friendly</h3>
+                <p class="description">By carpooling, the harmful emissions from vehicles will be reduced therefore helping towards greener environment.</p>
+            </div>
+        </div>
+        <div data-aos="fade-up-right" data-aos-duration="1000" data-aos-once="true" class="grid-item show-on-scroll item3">
+            <div class="left-section-grid">
+                <img class="grid-image" src="{% static 'carpool/css/img/traffic.jpg' %}" alt="">
+            </div>
+            <div class="right-section-grid">
+                <h3 class="name">Reduced Traffic</h3>
+                <p class="description">Reduces the number of vehicles on road as people use carpooling and group together.</p>
+            </div>
+        </div>
+        <div data-aos="fade-up-left" data-aos-duration="1000" data-aos-once="true" class="grid-item show-on-scroll item4">
+            <div class="left-section-grid">
+                <img class="grid-image" src="{% static 'carpool/css/img/convenience.jpg' %}" alt="">
+            </div>
+            <div class="right-section-grid">
+                <h3 class="name">Convenience</h3>
+                <p class="description">If you luck out and are not on driver duty then you can sit back, enjoy the music and the drive while socializing.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="{% static 'carpool/js/index.js' %}"></script>
+<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+{% endblock content %}

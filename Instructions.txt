@@ -1,0 +1,9 @@
+To run the project in your computer follow the steps
+1) Open Command Prompt
+2) Create a virtual environment and activate it 
+3) Place the requirements.txt in the same folder which has the virtual environment folder
+4) Run the following command in the command prompt
+	pip install -r requirements.txt
+5) Copy and paste the django_folder in the same folder which has the virtual environment folder and the requirements.txt
+6) In the command prompt go inside the django_project folder and run the following command
+	python manage.py runserver 

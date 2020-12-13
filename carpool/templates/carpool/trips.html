@@ -1,0 +1,143 @@
+{% extends "carpool/base.html" %}
+{% load static %}
+{% block title %}<title>Enroute Trips</title>
+<style>
+	body {
+    background: #fafafa;
+    color: #333333;
+    margin-top: 5rem;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #444444;
+  }
+  
+  ul {
+    margin: 0;
+  }
+  
+  .bg-steel {
+    background-color: #5f788a;
+  }
+  
+  .site-header .navbar-nav .nav-link {
+    color: #cbd5db;
+  }
+  
+  .site-header .navbar-nav .nav-link:hover {
+    color: #ffffff;
+  }
+  
+  .site-header .navbar-nav .nav-link.active {
+    font-weight: 500;
+  }
+  
+  .content-section {
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #000000;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    
+  }
+  .content-section-2 {
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #dfdddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    margin-top: 60px;
+  }
+  
+  .article-title {
+    color: #444444;
+  }
+  
+  a.article-title:hover {
+    color: #428bca;
+    text-decoration: none;
+  }
+  
+  .article-content {
+    white-space: pre-line;
+  }
+  
+  .article-img {
+    height: 65px;
+    width: 65px;
+    margin-right: 16px;
+  }
+  
+  .article-metadata {
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #e3e3e3
+  }
+  
+  .article-metadata a:hover {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .article-svg {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+  }
+  
+  .account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+  }
+  
+  .account-heading {
+    font-size: 2.5rem;
+  }
+</style>
+{% endblock %}
+{% block content %}
+<div class="container">
+  <article class="media content-section-2">
+    <h1>Trips</h1>
+  </article>
+        {% for trip in trips %}
+        <article class="media content-section">
+          <img class="rounded-circle article-img"src="{{ trip.author.profile.image.url }}" alt="">
+            <div class="media-body">
+                <h2><a class="article-title" href="{% url 'trip-detail' trip.id %}">{{ trip.source }} to {{ trip.destination}}</a></h2>
+              <div class="article-metadata">
+                <a class="mr-2" href="{% url 'user-trips' trip.author.username %}">By {{ trip.author }}</a>
+                <small class="text-muted">On {{trip.date_of_trip}}</small>
+              </div>
+              
+              <p class="article-content">Vacant seats = {{ trip.vacant_seats }}</p>
+            </div>
+        </article>
+        {% endfor %}
+        {% if is_paginated %}
+          
+          {% if page_obj.has_previous %}
+            <a class ="btn btn-outline-info mb-4" href="/carpool/trip?page=1">First</a>
+            <a class ="btn btn-outline-info mb-4" href="/carpool/trip?page={{ page_obj.previous_page_number }}">Previous</a>
+          {% endif %}
+
+          {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+              <a class ="btn btn-info mb-4" href="/carpool/trip?page={{ num }}">{{ num }}</a>
+            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+              <a class ="btn btn-outline-info mb-4" href="/carpool/trip?page={{ num }}">{{ num }}</a>
+            
+            {% endif %}
+          {% endfor %}
+          {% if page_obj.has_next %}
+            <a class ="btn btn-outline-info mb-4" href="/carpool/trip?page={{ page_obj.next_page_number }}">Next</a>
+            <a class ="btn btn-outline-info mb-4" href="/carpool/trip?page={{ page_obj.paginator.num_pages }}">Last</a>
+          {% endif %}
+        
+        {% endif %}
+</div>
+<script src="{% static 'carpool/app.js' %}"></script>
+{% endblock content %}
+  

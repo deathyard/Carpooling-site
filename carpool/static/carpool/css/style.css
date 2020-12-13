@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, 
+                 "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.hero {
+    width: 100%; 
+    height: 90vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./img/back.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    /* For centering the content of the hero section */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading-1 {
+    color: #ffffff;
+    font-size: 60px;
+    position: relative;
+    transition: 1s;
+}
+
+.heading-2 {
+    color: #ffffff;
+    font-size: 40px;
+    transition: 1s;
+}
+
+.tagline {
+    color: #ffffff;
+    font-size: 30px;
+    margin-bottom: 10px;
+    transition: 1s;
+}
+
+@media only screen and (max-width: 786px) {
+    .heading-1 {
+        font-size: 40px;
+    }
+    
+    .heading-2 {
+        font-size: 30px;
+    }
+
+    .tagline {
+        font-size: 20px;
+    }
+}
+
+.primary-btn {
+    width: 140px;
+    height: 50px;
+    border: 1px solid rgb(255, 0, 85);
+    border-radius: 10px;
+    color: #ffffff;
+    background-color: rgba(0,0,0,0);
+    font-size: 20px;
+    outline-style: none;
+    transition: background-color 500ms ease-in-out;
+}
+
+.primary-btn:hover,
+.primary-btn:focus {
+    background: rgb(255, 0, 85);
+}
+
+.primary-btn:active {
+    transform: scale(0.89);
+}
+
+.btn-2 {
+    background-color: rgb(255, 0, 85);
+    margin-left: 20px;
+}
+
+.scroll-btn {
+    width: 100%;
+    height: 24px;
+    margin-top: -24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scroll {
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+    background: url("./img/logo/keyboard_arrow_down-24px.svg");
+    background-position: center;
+    background-size: cover;
+} 
+
+.scroll {
+    animation: bounce 2s ease;
+    animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+	0%, 20%, 60%, 100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+
+	40% {
+		-webkit-transform: translateY(-20px);
+		transform: translateY(-20px);
+	}
+
+	80% {
+		-webkit-transform: translateY(-10px);
+		transform: translateY(-10px);
+	}
+}
+
+.aero {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heading-3 {
+    width: 100%;
+    margin-top: 40px;
+    font-size: 50px;    
+    text-align: center;
+}
+
+.grid-table {
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    margin-top: 20vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 30px;
+}
+
+.grid-item {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 0.7fr 1fr;
+}
+
+.left-section-grid {
+    width: 80%;
+    margin-right: 10px;
+}
+
+.grid-image {
+    width: 200px;
+    height: 150px;
+}
+
+.name {
+    font-size: 25px;
+}
+
+.description {
+    font-size: 20px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .aero {
+        height: 140vh;
+    }
+
+    .grid-table {
+        grid-template-columns: 1fr;
+    }
+    
+    .name {
+        font-size: 20px;
+    }
+    
+    .description {
+        font-size: 15px;
+    }
+}

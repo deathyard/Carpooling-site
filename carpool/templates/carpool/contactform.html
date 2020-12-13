@@ -1,0 +1,72 @@
+{% extends "carpool/base.html" %}
+{% load static %}
+{% block title %}<title>CONTACT FORM</title>
+<link rel="stylesheet" type="text/css" href="{% static 'carpool/style_contact.css' %}">{% endblock %}
+{% block content %}
+
+<body>
+	<div class="background">
+		<div class="container">
+			<div class="screen">
+				<div class="screen-header">
+					<div class="screen-header-left">
+						<div class="screen-header-button close"></div>
+						<div class="screen-header-button maximize"></div>
+						<div class="screen-header-button minimize"></div>
+					</div>
+
+					<div class="screen-header-right">
+						<div class="screen-header-ellipsis"></div>
+						<div class="screen-header-ellipsis"></div>
+						<div class="screen-header-ellipsis"></div>
+					</div>
+				</div>
+
+
+				<div class="screen-body">
+					<div class="screen-body-item left">
+						<div class="app-title">
+							<span>Contact Us</span>
+						</div>
+
+						<div class="app-title-next">
+							<span>We are ready to serve you!</span>
+						</div>
+
+
+						<div class="app-contact">CONTACT INFO : +91 9854712345</div>
+					</div>
+
+					<div class="screen-body-item">
+						<div class="app-form">
+							<form id="app-form" method="post" action="">
+								<div class="app-form-group">
+									<input class="app-form-control" type="text" name="name" placeholder="NAME">
+								</div>
+
+								<div class="app-form-group">
+									<input class="app-form-control" type="email" name="email" placeholder="EMAIL ID">
+								</div>
+
+								<div class="app-form-group">
+									<input class="app-form-control" type="digits" name="digits"
+										placeholder="CONTACT NO">
+								</div>
+
+								<div class="app-form-group message">
+									<input class="app-form-control" rows="3" name="message" placeholder="MESSAGE">
+								</div>
+
+								<div class="app-form-buttons">
+									<input class="app-form-button app-form-lighgrey app-form-round-xxlarge"
+										type="submit" value="Submit">
+
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endblock %}

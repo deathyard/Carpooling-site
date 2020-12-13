@@ -1,0 +1,129 @@
+{% extends "carpool/base.html" %}
+{% load static %}
+{% block title %}<title>Enroute Trips</title>
+<style>
+	body {
+    background: #fafafa;
+    color: #333333;
+    margin-top: 5rem;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color:black;
+  }
+  
+  ul {
+    margin: 0;
+  }
+  
+  .bg-steel {
+    background-color: #5f788a;
+  }
+  
+  .site-header .navbar-nav .nav-link {
+    color: #cbd5db;
+  }
+  
+  .site-header .navbar-nav .nav-link:hover {
+    color: #ffffff;
+  }
+  
+  .site-header .navbar-nav .nav-link.active {
+    font-weight: 500;
+  }
+  
+  .content-section {
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #000000;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    
+  }
+  .content-section-2 {
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #dfdddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    margin-top: 60px;
+  }
+  
+  .article-title {
+    color: #444444;
+  }
+  
+  a.article-title:hover {
+    color: #428bca;
+    text-decoration: none;
+  }
+  
+  .article-content {
+    white-space: pre-line;
+  }
+  
+  .article-img {
+    height: 65px;
+    width: 65px;
+    margin-right: 16px;
+  }
+  
+  .article-metadata {
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #e3e3e3
+  }
+  
+  .article-metadata a:hover {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .article-svg {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+  }
+  
+  .account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+  }
+  .joker{
+      margin-bottom:265px;
+  }
+  
+  .account-heading {
+    font-size: 2.5rem;
+  }
+</style>
+{% endblock %}
+{% block content %}
+<div class="container">
+  <article class="media content-section-2">
+    <h1>Trip</h1>
+  </article>
+        
+        <article class="media content-section">
+          <img class="rounded-circle article-img"src="{{ object.author.profile.image.url }}" alt="">
+            <div class="media-body">
+                <h2 class="article-title" href="#">{{ object.source }} to {{ object.destination}}</h2>
+              <div class="article-metadata">
+                <a class="mr-2" href="{% url 'user-trips' object.author.username %}">By {{ object.author }}</a>
+                <small class="text-muted">On {{object.date_of_trip}}</small>
+              </div>
+              
+              <p class="article-content">Vacant seats = {{ object.vacant_seats }}</p>
+            </div>
+        </article>
+        {% if object.author == user %}
+        <a class="btn btn-secondary btn-sm mt-1 mb-1"href="{% url 'trip-update' trip.id %}"><h3>Update</h3></a>
+        <a class="btn btn-danger btn-sm mt-1 mb-1"href="{% url 'trip-delete' trip.id %}"><h3>Delete</h3></a>
+        {% endif %}
+        <article class="joker"></article>
+        
+</div>
+{% endblock content %}
+  

@@ -1,0 +1,85 @@
+{% extends "carpool/base.html" %}
+{% load static %}
+{% block title %}<title>Enroute-About Us</title>
+<link rel="stylesheet" href="{% static 'carpool/style.css' %}">
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+          background-image : linear-gradient(to right, #45009a 0%, #bc0099 100%);
+          color: #ffffff;
+          margin-top: 5rem;
+        }
+        
+        .about h2,h1{
+          color: #ffffff;
+        }
+        
+        .about p{
+          color: #ffffff;
+        }
+        
+        .card-containers h2,p{
+          color: black;
+        }
+        
+    </style>
+{% endblock %}
+
+{% block content %}
+
+<h1>About Us</h1>
+<div class="header">
+    <h1 data-aos="zoom-out" data-aos-duration="1200">Enroute</h1>
+    <div class="about">
+        <p data-aos="zoom-in" data-aos-duration="1200">"People don’t take trips, trips take people." – John Steinbeck</p>
+        <p data-aos="zoom-in" data-aos-duration="1200">Carpooling creates a unique space, enabling exchanges between people who might have never met otherwise but who come together to share a ride.</p>
+        <p data-aos="zoom-in" data-aos-duration="1200">– Bringing People Closer is the largest study conducted on the social impacts of carpooling and reveals the social ties created by carpooling.</p>
+        <p data-aos="zoom-in" data-aos-duration="1200">– Drive cheaper... and make a positive contribution to your environment.
+          Thanks to Enroute you will save money, but you will also reduce traffic congestion and air pollution.</p>
+    </div>
+</div>
+<div class="lower-section">
+    <div class="heading">
+        <h2 >The Team</h2>
+    </div>
+
+
+    <div class="cards-container">
+        <div data-aos="fade-up" data-aos-once="true" data-aos-duration="1000" data-aos-delay="100" class="card card1">
+            <h2>Utkarsh Aditya</h2>
+            <p>S20180010182</p>
+            <p>Backend Design & Developement</p>
+            <p><a href="mailto:ajayaditya.u18@iiits.in" target="_top"><address>utkarsh.a18@iiits.in</address></a></p>
+        </div>
+        <div data-aos="fade-up" data-aos-once="true" data-aos-duration="1000" data-aos-delay="200" class="card card2">
+            <h2>Vipul Rawat</h2>
+            <p>S20180010182</p>
+            <p>Frontend Design & Devlopement</p>
+            <p><a href="mailto:vipul.r18@iiits.in" target="_top"><address>vipul.r18@iiits.in</address></a></p>
+        </div>
+        <div data-aos="fade-up" data-aos-once="true" data-aos-duration="1000" data-aos-delay="300" class="card card3">
+            <h2>Brinda S</h2>
+            <p>S20180010031</p>
+            <p>Frontend Design</p>
+            <p><a href="mailto:brinda.s18@iiits.in" target="_top"><address>brinda.s18@iiits.in</address></a></p>
+        </div>
+        <div data-aos="fade-up" data-aos-once="true" data-aos-duration="1000" data-aos-delay="400" class="card card4">
+            <h2>Saumya Doogar</h2>
+            <p>S20180010156</p>
+            <p>Frontend and Documentation</p>
+            <p><a href="mailto:saumya.d18@iiits.in" target="_top"><address>saumya.d18@iiits.in</address></a></p>
+        </div>
+        <div data-aos="fade-up" data-aos-once="true" data-aos-duration="1000" data-aos-delay="500" class="card card5">
+            <h2>Sai Kshitij</h2>
+            <p>S20180010117</p>
+            <p>Backend Design</p>
+            <p><a href="mailto:kshitij.s18@iiits.in" target="_top"><address>kshitij.s18@iiits.in</address></a></p>
+        </div>
+    </div>
+</div>
+
+<script  src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+{% endblock content %}
